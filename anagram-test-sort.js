@@ -5,7 +5,7 @@ function countAnagrams(arr) {
     const anagramMap = {};
 
     arr.forEach(word => {
-        const sorted = word.split('').sort().join('');
+        const sorted = word.toLowerCase().split('').sort().join('');
         if (anagramMap[sorted]) {
             anagramMap[sorted]++;
         } else {
@@ -25,6 +25,7 @@ function countAnagrams(arr) {
 
 console.time('test');
 assert.equal(countAnagrams(['cat', 'act']), 2);
+assert.equal(countAnagrams(['Cat', 'act']), 2);
 assert.equal(countAnagrams(['cat', 'act', 'xyz']), 2);
 assert.equal(countAnagrams(['cat', 'act', 'dog', 'god', 'xyz']), 4);
 assert.equal(countAnagrams(['cat', 'act', 'anagram', 'nagaram', 'ganamar', 'xyz', 'abc']), 5);

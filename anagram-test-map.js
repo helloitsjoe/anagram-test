@@ -8,7 +8,7 @@ function countAnagrams(arr) {
         const letterMap = {};
 
         for (let i = 0; i < word.length; i++) {
-            const letter = word[i];
+            const letter = word[i].toLowerCase();
             if (letterMap[letter]) {
                 letterMap[letter]++;      	
             } else {
@@ -57,6 +57,7 @@ function deepEqual(a, b) {
 
 console.time('test');
 assert.equal(countAnagrams(['cat', 'act']), 2);
+assert.equal(countAnagrams(['Cat', 'act']), 2);
 assert.equal(countAnagrams(['cat', 'act', 'xyz']), 2);
 assert.equal(countAnagrams(['cat', 'act', 'dog', 'god', 'xyz']), 4);
 assert.equal(countAnagrams(['cat', 'act', 'anagram', 'nagaram', 'ganamar', 'xyz', 'abc']), 5);
